@@ -1,29 +1,10 @@
 
-type Blog {
+type Note {
   id: ID!
   name: String!
-  posts(filter: ModelPostFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelPostConnection
+  description: String
   createdAt: AWSDateTime!
   updatedAt: AWSDateTime!
-}
-
-type Post {
-  id: ID!
-  title: String!
-  blog: Blog
-  comments(filter: ModelCommentFilterInput, sortDirection: ModelSortDirection, limit: Int, nextToken: String): ModelCommentConnection
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
-  blogPostsId: ID
-}
-
-type Comment {
-  id: ID!
-  post: Post
-  content: String!
-  createdAt: AWSDateTime!
-  updatedAt: AWSDateTime!
-  postCommentsId: ID
 }
 
 input ModelStringInput {
@@ -176,167 +157,66 @@ enum ModelSortDirection {
   DESC
 }
 
-type ModelBlogConnection {
-  items: [Blog]!
+type ModelNoteConnection {
+  items: [Note]!
   nextToken: String
 }
 
-input ModelBlogFilterInput {
+input ModelNoteFilterInput {
   id: ModelIDInput
   name: ModelStringInput
-  and: [ModelBlogFilterInput]
-  or: [ModelBlogFilterInput]
-  not: ModelBlogFilterInput
+  description: ModelStringInput
+  and: [ModelNoteFilterInput]
+  or: [ModelNoteFilterInput]
+  not: ModelNoteFilterInput
 }
 
 type Query {
-  getBlog(id: ID!): Blog
-  listBlogs(filter: ModelBlogFilterInput, limit: Int, nextToken: String): ModelBlogConnection
-  getPost(id: ID!): Post
-  listPosts(filter: ModelPostFilterInput, limit: Int, nextToken: String): ModelPostConnection
-  getComment(id: ID!): Comment
-  listComments(filter: ModelCommentFilterInput, limit: Int, nextToken: String): ModelCommentConnection
+  getNote(id: ID!): Note
+  listNotes(filter: ModelNoteFilterInput, limit: Int, nextToken: String): ModelNoteConnection
 }
 
-input ModelBlogConditionInput {
+input ModelNoteConditionInput {
   name: ModelStringInput
-  and: [ModelBlogConditionInput]
-  or: [ModelBlogConditionInput]
-  not: ModelBlogConditionInput
+  description: ModelStringInput
+  and: [ModelNoteConditionInput]
+  or: [ModelNoteConditionInput]
+  not: ModelNoteConditionInput
 }
 
-input CreateBlogInput {
+input CreateNoteInput {
   id: ID
   name: String!
+  description: String
 }
 
-input UpdateBlogInput {
+input UpdateNoteInput {
   id: ID!
   name: String
+  description: String
 }
 
-input DeleteBlogInput {
+input DeleteNoteInput {
   id: ID!
 }
 
 type Mutation {
-  createBlog(input: CreateBlogInput!, condition: ModelBlogConditionInput): Blog
-  updateBlog(input: UpdateBlogInput!, condition: ModelBlogConditionInput): Blog
-  deleteBlog(input: DeleteBlogInput!, condition: ModelBlogConditionInput): Blog
-  createPost(input: CreatePostInput!, condition: ModelPostConditionInput): Post
-  updatePost(input: UpdatePostInput!, condition: ModelPostConditionInput): Post
-  deletePost(input: DeletePostInput!, condition: ModelPostConditionInput): Post
-  createComment(input: CreateCommentInput!, condition: ModelCommentConditionInput): Comment
-  updateComment(input: UpdateCommentInput!, condition: ModelCommentConditionInput): Comment
-  deleteComment(input: DeleteCommentInput!, condition: ModelCommentConditionInput): Comment
+  createNote(input: CreateNoteInput!, condition: ModelNoteConditionInput): Note
+  updateNote(input: UpdateNoteInput!, condition: ModelNoteConditionInput): Note
+  deleteNote(input: DeleteNoteInput!, condition: ModelNoteConditionInput): Note
 }
 
-input ModelSubscriptionBlogFilterInput {
+input ModelSubscriptionNoteFilterInput {
   id: ModelSubscriptionIDInput
   name: ModelSubscriptionStringInput
-  and: [ModelSubscriptionBlogFilterInput]
-  or: [ModelSubscriptionBlogFilterInput]
+  description: ModelSubscriptionStringInput
+  and: [ModelSubscriptionNoteFilterInput]
+  or: [ModelSubscriptionNoteFilterInput]
 }
 
 type Subscription {
-  onCreateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["createBlog"])
-  onUpdateBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["updateBlog"])
-  onDeleteBlog(filter: ModelSubscriptionBlogFilterInput): Blog @aws_subscribe(mutations: ["deleteBlog"])
-  onCreatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["createPost"])
-  onUpdatePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["updatePost"])
-  onDeletePost(filter: ModelSubscriptionPostFilterInput): Post @aws_subscribe(mutations: ["deletePost"])
-  onCreateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["createComment"])
-  onUpdateComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["updateComment"])
-  onDeleteComment(filter: ModelSubscriptionCommentFilterInput): Comment @aws_subscribe(mutations: ["deleteComment"])
-}
-
-type ModelPostConnection {
-  items: [Post]!
-  nextToken: String
-}
-
-input ModelPostFilterInput {
-  id: ModelIDInput
-  title: ModelStringInput
-  and: [ModelPostFilterInput]
-  or: [ModelPostFilterInput]
-  not: ModelPostFilterInput
-  blogPostsId: ModelIDInput
-}
-
-input ModelPostConditionInput {
-  title: ModelStringInput
-  and: [ModelPostConditionInput]
-  or: [ModelPostConditionInput]
-  not: ModelPostConditionInput
-  blogPostsId: ModelIDInput
-}
-
-input CreatePostInput {
-  id: ID
-  title: String!
-  blogPostsId: ID
-}
-
-input UpdatePostInput {
-  id: ID!
-  title: String
-  blogPostsId: ID
-}
-
-input DeletePostInput {
-  id: ID!
-}
-
-input ModelSubscriptionPostFilterInput {
-  id: ModelSubscriptionIDInput
-  title: ModelSubscriptionStringInput
-  and: [ModelSubscriptionPostFilterInput]
-  or: [ModelSubscriptionPostFilterInput]
-}
-
-type ModelCommentConnection {
-  items: [Comment]!
-  nextToken: String
-}
-
-input ModelCommentFilterInput {
-  id: ModelIDInput
-  content: ModelStringInput
-  and: [ModelCommentFilterInput]
-  or: [ModelCommentFilterInput]
-  not: ModelCommentFilterInput
-  postCommentsId: ModelIDInput
-}
-
-input ModelCommentConditionInput {
-  content: ModelStringInput
-  and: [ModelCommentConditionInput]
-  or: [ModelCommentConditionInput]
-  not: ModelCommentConditionInput
-  postCommentsId: ModelIDInput
-}
-
-input CreateCommentInput {
-  id: ID
-  content: String!
-  postCommentsId: ID
-}
-
-input UpdateCommentInput {
-  id: ID!
-  content: String
-  postCommentsId: ID
-}
-
-input DeleteCommentInput {
-  id: ID!
-}
-
-input ModelSubscriptionCommentFilterInput {
-  id: ModelSubscriptionIDInput
-  content: ModelSubscriptionStringInput
-  and: [ModelSubscriptionCommentFilterInput]
-  or: [ModelSubscriptionCommentFilterInput]
+  onCreateNote(filter: ModelSubscriptionNoteFilterInput): Note @aws_subscribe(mutations: ["createNote"])
+  onUpdateNote(filter: ModelSubscriptionNoteFilterInput): Note @aws_subscribe(mutations: ["updateNote"])
+  onDeleteNote(filter: ModelSubscriptionNoteFilterInput): Note @aws_subscribe(mutations: ["deleteNote"])
 }
 

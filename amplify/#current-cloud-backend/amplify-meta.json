@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-dotchay-dev-165019-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apidotchay"
       },
-      "lastPushTimeStamp": "2023-04-29T13:10:23.692Z",
-      "lastPushDirHash": "is5gbeKTw9gDHPizy9HxQt3//Bs="
+      "lastPushTimeStamp": "2023-04-29T17:49:00.643Z",
+      "lastPushDirHash": "DFTQcD93GmxJ5xvTYou51SUlvCY="
     }
   },
   "auth": {
@@ -69,7 +69,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-dotchay-dev-165019-deployment/amplify-cfn-templates/auth/dotchayd91ffe12-cloudformation-template.json",
         "logicalId": "authdotchayd91ffe12"
       },
-      "lastPushTimeStamp": "2023-04-29T13:10:23.855Z",
+      "lastPushTimeStamp": "2023-04-29T17:48:59.400Z",
       "output": {
         "UserPoolId": "eu-west-2_lJeHEtlOx",
         "AppClientIDWeb": "6qv6ugdbrotj0d81s0p2b6io5p",
