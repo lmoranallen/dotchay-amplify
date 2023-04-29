@@ -17,6 +17,9 @@
       },
       "auth": {
         "dotchayd91ffe12": {}
+      },
+      "storage": {
+        "dotchayresource": {}
       }
     }
   }

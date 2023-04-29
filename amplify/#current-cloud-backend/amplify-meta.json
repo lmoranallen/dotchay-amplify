@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-dotchay-dev-165019-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apidotchay"
       },
-      "lastPushTimeStamp": "2023-04-29T17:49:00.643Z",
-      "lastPushDirHash": "DFTQcD93GmxJ5xvTYou51SUlvCY="
+      "lastPushTimeStamp": "2023-04-29T18:33:25.192Z",
+      "lastPushDirHash": "kXVJRJNe8dAARkJ3jiHhktYv27A="
     }
   },
   "auth": {
@@ -69,7 +69,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-dotchay-dev-165019-deployment/amplify-cfn-templates/auth/dotchayd91ffe12-cloudformation-template.json",
         "logicalId": "authdotchayd91ffe12"
       },
-      "lastPushTimeStamp": "2023-04-29T17:48:59.400Z",
+      "lastPushTimeStamp": "2023-04-29T18:33:25.192Z",
       "output": {
         "UserPoolId": "eu-west-2_lJeHEtlOx",
         "AppClientIDWeb": "6qv6ugdbrotj0d81s0p2b6io5p",
@@ -79,7 +79,24 @@
         "IdentityPoolName": "dotchayd91ffe12_identitypool_d91ffe12__dev",
         "UserPoolName": "dotchayd91ffe12_userpool_d91ffe12"
       },
-      "lastPushDirHash": "6D9hX014YaRdJQZehPRhuI5Ia1s="
+      "lastPushDirHash": "HqesmJOnFa6b9+ZO0Ic0avy4IG0="
+    }
+  },
+  "storage": {
+    "dotchayresource": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2023-04-29T18:33:25.192Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-dotchay-dev-165019-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagedotchayresource"
+      },
+      "output": {
+        "BucketName": "s3dotchay165019-dev",
+        "Region": "eu-west-2"
+      },
+      "lastPushDirHash": "ik0v75bVYaLf2jidk5PBld2KT0g="
     }
   }
 }

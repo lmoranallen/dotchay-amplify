@@ -1,6 +1,6 @@
 {
   "identityPoolName": "dotchayd91ffe12_identitypool_d91ffe12",
-  "allowUnauthenticatedIdentities": false,
+  "allowUnauthenticatedIdentities": true,
   "resourceNameTruncated": "dotchad91ffe12",
   "userPoolName": "dotchayd91ffe12_userpool_d91ffe12",
   "autoVerifiedAttributes": [
