@@ -22,7 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pull-amplify": "amplify pull --appId dlo0p08lxv4ng --envName main"
   },
   "eslintConfig": {
     "extends": [
