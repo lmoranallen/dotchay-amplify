@@ -1,0 +1,16 @@
+{
+  "resourceName": "dotchayresource",
+  "policyUUID": "51fa90ff",
+  "bucketName": "s3dotchay",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
