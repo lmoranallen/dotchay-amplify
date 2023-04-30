@@ -1,7 +1,0 @@
-{
-    "AppSyncApiName": "dotchay",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-dotchay-dev-165019-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/18a22452a93b5201c27e736c2b60ac6c9a129558"
-}
